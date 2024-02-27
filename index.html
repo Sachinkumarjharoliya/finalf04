@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Two Frame Example</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css"
+    />
+    <link rel="stylesheet" href="styles1.css" />
+    <style>
+      .upload-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        top: 50px;
+        margin-left: 194px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="frame"
+        id="frame1"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      >
+        <header draggable="true" ondragstart="drag(event)">
+          <div class="logo" contenteditable="true">
+            <img id="logoImg" src="./download.jpg" alt="Logo" />
+          </div>
+          <nav contenteditable="true">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Details</a></li>
+            </ul>
+          </nav>
+        </header>
+        <div class="content" contenteditable="true">
+          <img
+            id="mainImg"
+            src="download (1).jpg"
+            alt="Image"
+            draggable="true"
+            ondragstart="drag(event)"
+          />
+          <div
+            class="container"
+            draggable="true"
+            ondragstart="drag(event)"
+          ></div>
+          <div draggable="true" ondragstart="drag(event)">
+            <p>
+              What does HTML code contain? HTML elements always have opening
+              tags, content in the middle and closing tags. Attributes can
+              provide additional information about the element and are included
+              in the opening tag. Elements can be described in one of two ways:
+              Block-level elements start on a new line in the document and take
+              up their own space.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="frame"
+        id="frame2"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      >
+        <div id="secondFrameContent" contenteditable="false"></div>
+        <input
+          class="uploadInput"
+          type="file"
+          accept="image/*"
+          style="display: none"
+          onchange="handleImageUpload(event)"
+        />
+        <button
+          id="uploadButton"
+          class="upload-button"
+          onclick="document.querySelector('#frame2 .uploadInput').click()"
+        >
+          Upload logo
+        </button>
+
+        <input
+          id="mainImgInput"
+          type="file"
+          accept="image/*"
+          style="display: none"
+          onchange="handleMainImageUpload(event)"
+        />
+
+        <button
+          id="mainImgUploadButton"
+          class="upload-button1"
+          style="display: none"
+          onclick="document.querySelector('#frame2 #mainImgInput').click()"
+        >
+          Change main image
+        </button>
+      </div>
+    </div>
+    <div class="pagebtn">
+      <button onclick="printKarwade()" style="margin-top: 10px">Print</button>
+      <button onclick="toggleEdit()">Edit</button>
+    </div>
+    <script src="./fof.js"></script>
+  </body>
+</html>
